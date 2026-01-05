@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. OTIMIZAÇÃO DE METADADOS (IMPACTO WHATSAPP/INSTA) -->
     <title>Beach House Horizon | Exclusive Listing</title>
     <meta property="og:title" content="Beach House Horizon - Onde o Luxo Encontra o Mar">
-    <meta property="og:description" content="Refúgio pé na areia exclusivo em Florianópolis. Design biofílico por R$ 4.5M.">
-    <meta property="og:image" content="fachada_light.jpg"> <meta property="og:type" content="website">
-    
-    <link rel="icon" href="https://fav.farm/🌊">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
-    <title>Beach House Horizon | Exclusive Listing</title>
+    <meta property="og:description" content="Refúgio pé na areia com design biofílico em Florianópolis. R$ 4.5M.">
+    <meta property="og:image" content="sala1_light.jpg"> <!-- Aponta para a foto mais bonita -->
+    <meta property="og:type" content="website">
+
+    <!-- 3. FAVICON CUSTOMIZADO (ÁGUIA) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* TEMA LIGHT / PRAIA (Fundo Claro, Detalhes Areia/Dourado) */
-            --bg: #F9F9F9;           /* Fundo da página claro */
-            --card-bg: #FFFFFF;      /* Cards brancos */
-            --text: #333333;         /* Texto principal escuro */
-            --text-muted: #666666;   /* Texto secundário cinza */
-            --gold: #C5A059;         /* Dourado mais "Areia" */
-            --gold-dark: #8D6E3F;    /* Dourado escuro para contraste */
-            
-            /* Overlay do Hero (Mantive escuro com transparência para ler o texto branco na capa) */
+            /* TEMA LIGHT / PRAIA */
+            --bg: #F9F9F9;
+            --card-bg: #FFFFFF;
+            --text: #333333;
+            --text-muted: #666666;
+            --gold: #C5A059;
+            --gold-dark: #8D6E3F;
             --overlay: linear-gradient(90deg, rgba(0,0,0,0.4) 15%, rgba(0,0,0,0.2) 60%, transparent 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* 2. MICRO-INTERAÇÕES: SCROLL SUAVE */
+        html { scroll-behavior: smooth; }
         
         body { 
             background-color: var(--bg); 
@@ -37,7 +40,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 1. HERO LATERAL --- */
+        /* HERO */
         .hero {
             height: 100vh;
             width: 100%;
@@ -48,7 +51,7 @@
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('fachada_light.jpg'); /* FOTO DA FACHADA LIGHT */
+            background-image: url('fachada_light.jpg');
             background-size: cover; background-position: center;
             z-index: 1;
         }
@@ -67,7 +70,7 @@
         }
         
         .hero-tag { 
-            letter-spacing: 4px; text-transform: uppercase; color: #FFF; /* Tag branca na foto */
+            letter-spacing: 4px; text-transform: uppercase; color: #FFF;
             font-size: 0.8rem; margin-bottom: 10px; display: block; font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
@@ -82,26 +85,23 @@
             margin-bottom: 10px;
         }
 
-        /* --- 2. SPECS BAR --- */
+        /* SPECS BAR */
         .specs-bar {
             background: var(--card-bg);
             padding: 30px 40px;
             display: flex; justify-content: space-between; gap: 30px;
-            /* Sombra mais suave para o tema light */
             box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
             position: relative; z-index: 20; margin-top: -60px;
             width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto;
-            border: 1px solid #E0E0E0; /* Borda cinza claro */
+            border: 1px solid #E0E0E0;
             flex-wrap: wrap; 
         }
         .spec-item { text-align: center; flex: 1; min-width: 80px; }
-        
-        /* Cor dos números ajustada para o tema claro */
         .spec-value { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text); display: block; margin-bottom: 5px; }
         .spec-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
         .divider { width: 1px; background: #E0E0E0; height: 40px; align-self: center; }
 
-        /* --- 3. DESTAQUES --- */
+        /* DESTAQUES */
         .features-section {
             padding: 80px 20px;
             max-width: 1000px; margin: 0 auto;
@@ -119,7 +119,7 @@
         .feature-box h4 { font-family: 'Cinzel'; font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
         .feature-box p { color: var(--text-muted); line-height: 1.5; font-size: 0.9rem; }
 
-        /* --- 4. CARROSSEL ZIG-ZAG (ESTRUTURA MANTIDA) --- */
+        /* CARROSSEL ZIG-ZAG */
         .room-section { margin-bottom: 100px; position: relative; margin-top: 80px; }
         
         .room-title-sticky {
@@ -136,13 +136,12 @@
         }
         .room-track::-webkit-scrollbar { display: none; }
 
-        /* Card de Texto (Ajustado para Light) */
         .room-info-card {
             min-width: 350px; scroll-snap-align: start;
-            background: var(--card-bg); /* Fundo branco */
+            background: var(--card-bg);
             border: 1px solid #E0E0E0;
             padding: 40px; display: flex; flex-direction: column; justify-content: center;
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.1); /* Sombra suave */
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
             margin-right: -40px; z-index: 5; 
             height: 450px;
         }
@@ -150,55 +149,42 @@
         .room-info-card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
         .room-info-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 25px; }
         
-        /* Seta (Cor ajustada para visibilidade no tema claro) */
         .swipe-hint { font-size: 0.7rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 1; }
         .swipe-hint::after { content: ' →'; } 
         
-        /* Fotos */
         .photo-card {
             min-width: 600px; height: 450px; scroll-snap-align: center;
             overflow: hidden; border: 1px solid #E0E0E0; position: relative;
         }
         .photo-card::after { 
             content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-            /* Sombra interna mais suave no light mode para não escurecer demais a foto */
             background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 20%);
         }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; }
-        .photo-card:hover img { transform: scale(1.05); }
+        
+        /* 2. MICRO-INTERAÇÕES: HOVER NAS FOTOS */
+        .photo-card img:hover { transform: scale(1.08); transition: transform 0.8s ease-in-out; }
 
-        /* --- LÓGICA DE INVERSÃO (RTL) - MANTIDA --- */
+        /* LÓGICA RTL */
         section:nth-of-type(odd) .room-title-sticky {
-            text-align: right;
-            border-left: none;
-            border-right: 3px solid var(--gold);
-            margin-left: 0; margin-right: 5%;
-            padding-left: 0; padding-right: 20px;
+            text-align: right; border-left: none; border-right: 3px solid var(--gold);
+            margin-left: 0; margin-right: 5%; padding-left: 0; padding-right: 20px;
         }
-        
         section:nth-of-type(odd) .room-track { direction: rtl; }
-
-        section:nth-of-type(odd) .room-info-card {
-            direction: ltr; text-align: left;
-            margin-right: 0; margin-left: -40px; 
-        }
-
+        section:nth-of-type(odd) .room-info-card { direction: ltr; text-align: left; margin-right: 0; margin-left: -40px; }
         section:nth-of-type(odd) .swipe-hint::after { content: ' ←'; }
-        
         section:nth-of-type(odd) .photo-card { direction: ltr; }
 
-        /* --- MARCA D'ÁGUA --- */
+        /* MARCA D'ÁGUA */
         .watermark-layer {
             position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
             z-index: 9999; pointer-events: none;
-            /* Assume-se que a logo é escura ou usaremos mix-blend para aparecer no fundo claro */
-            background-image: url('logo.png'); /* Usando a imagem da lista */
+            background-image: url('logo.png');
             background-repeat: repeat; background-size: 300px; 
             opacity: 0.03; transform: rotate(-30deg); 
-            /* No tema claro, exclusion funciona, ou normal com baixa opacidade */
         }
 
-        /* --- FOOTER --- */
+        /* FOOTER */
         .footer {
             background: #FFFFFF; color: var(--text); text-align: center;
             padding: 80px 20px 120px; margin-top: 50px; border-top: 1px solid #E0E0E0;
@@ -209,14 +195,12 @@
             object-fit: cover;
         }
 
-        /* --- CTA FLUTUANTE --- */
+        /* CTA */
         .cta-float {
             position: fixed; bottom: 30px; right: 30px;
             background: linear-gradient(45deg, var(--gold), var(--gold-dark));
-            color: #FFF; /* Texto branco no botão dourado */
-            padding: 18px 40px; 
-            border-radius: 50px; 
-            text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            color: #FFF; padding: 18px 40px; 
+            border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
             box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
             z-index: 100; transition: transform 0.3s;
         }
@@ -224,37 +208,28 @@
 
         @keyframes fadeRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* --- MOBILE --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 3rem; }
             .specs-bar { 
                 display: grid; grid-template-columns: 1fr 1fr; gap: 20px; 
                 width: 95%; margin-top: -30px; padding: 20px; 
             }
-            .spec-item:last-child { grid-column: span 2; } /* Centraliza o ultimo se for impar */
+            .spec-item:last-child { grid-column: span 2; }
             .divider { display: none; }
             .features-grid { grid-template-columns: 1fr; gap: 30px; }
-            
             .room-info-card { min-width: 88vw; margin-right: 15px; height: auto; padding: 30px; }
             section:nth-of-type(odd) .room-info-card { margin-left: 15px; margin-right: 0; }
             .photo-card { min-width: 88vw; height: 300px; }
             .watermark-layer { background-size: 150px; } 
-
-            .cta-float {
-                left: 50%; transform: translateX(-50%); width: 90%; 
-                bottom: 20px; padding: 14px 0; font-size: 0.9rem; 
-                text-align: center; right: auto;
-            }
+            .cta-float { left: 50%; transform: translateX(-50%); width: 90%; bottom: 20px; padding: 14px 0; font-size: 0.9rem; text-align: center; right: auto; }
             body { padding-bottom: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MARCA D'ÁGUA -->
     <div class="watermark-layer"></div>
 
-    <!-- HERO -->
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
@@ -265,7 +240,6 @@
         </div>
     </header>
 
-    <!-- SPECS -->
     <div class="specs-bar">
         <div class="spec-item">
             <span class="spec-value">450m²</span>
@@ -283,7 +257,6 @@
         </div>
     </div>
 
-    <!-- DESTAQUES -->
     <section class="features-section">
         <div class="section-header">
             <h2 class="section-title">Onde o Luxo Encontra o Mar</h2>
@@ -316,29 +289,25 @@
     <section class="room-section">
         <div class="room-title-sticky">Living Principal</div>
         <div class="room-track">
-            <!-- Card de Texto -->
             <div class="room-info-card">
                 <h3>Luz &<br>Integração</h3>
                 <p>Aberturas do chão ao teto convidam a luz do sol a entrar. O living conecta-se fluidamente com a área externa, criando um espaço perfeito para receber e relaxar.</p>
                 <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-            <!-- Fotos -->
             <div class="photo-card"><img src="sala1_light.jpg" alt="Sala Clara"></div>
             <div class="photo-card"><img src="sala2_light.jpg" alt="Sala Detalhes"></div>
         </div>
     </section>
 
-    <!-- CÔMODO 2: SUÍTE (INVERTIDO ZIG-ZAG) -->
+    <!-- CÔMODO 2: SUÍTE -->
     <section class="room-section">
         <div class="room-title-sticky">Master Suite</div>
         <div class="room-track">
-            <!-- Card de Texto -->
             <div class="room-info-card">
                 <h3>O Som<br>do Mar</h3>
                 <p>Acorde com a brisa do oceano. A suíte master oferece vista total para o horizonte e um acabamento suave que garante noites de sono reparadoras.</p>
                 <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-            <!-- Fotos -->
             <div class="photo-card"><img src="quarto1_light.jpg" alt="Quarto Vista Mar"></div>
             <div class="photo-card"><img src="quarto2_light.jpg" alt="Quarto Claro"></div>
         </div>
@@ -348,36 +317,31 @@
     <section class="room-section">
         <div class="room-title-sticky">Outdoor Living</div>
         <div class="room-track">
-            <!-- Card de Texto -->
             <div class="room-info-card">
                 <h3>Horizonte<br>Infinito</h3>
                 <p>A piscina de borda infinita funde-se com o mar azul. Área gourmet completa para churrascos ao pôr do sol com a família e amigos.</p>
                 <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-            <!-- Fotos -->
             <div class="photo-card"><img src="lazer1_light.jpg" alt="Piscina"></div>
             <div class="photo-card"><img src="lazer2_light.jpg" alt="Área Externa"></div>
         </div>
     </section>
 
-    <!-- FOOTER COM CORRETOR -->
     <footer class="footer">
-        <!-- Foto do corretor -->
         <img src="corretores.jpg" class="broker-img" alt="Ricardo Mendes">
         <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Ricardo Mendes</h3>
         <p>Consultoria Imobiliária de Luxo</p>
         <br><br>
         
+        <!-- 5. O SELO "POWERED BY MOGUL PARTNERS" -->
         <div style="opacity: 0.9; margin-top: 20px;">
-            <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase;">
-                Powered by
+            <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.5;">
+                Tecnologia de Vendas Exclusiva Mogul Partners 🦅<br>Proibida a reprodução de ativos.
             </p>
-            <!-- Logo usando o arquivo solicitado -->
             <img src="logo.png" alt="Mogul Tech" style="width: 160px; height: auto; display: block; margin: 0 auto; filter: grayscale(100%); opacity: 0.7;">
         </div>
     </footer>
 
-    <!-- BOTÃO DE AÇÃO -->
     <a href="https://wa.me/5548999999999" class="cta-float">
         Agendar Visita VIP 🔑
     </a>
