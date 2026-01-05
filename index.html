@@ -5,320 +5,249 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beach House Horizon | Exclusive Listing</title>
     
-    <!-- Fontes Premium -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            /* PALETA LIGHT LUXURY (Praia/Dia) */
-            --bg-color: #F9F9F9;
-            --white: #FFFFFF;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --gold-sand: #C5A059; /* Tom Dourado/Areia */
-            --overlay-light: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+            /* TEMA LIGHT / PRAIA (Fundo Claro, Detalhes Areia/Dourado) */
+            --bg: #F9F9F9;           /* Fundo da página claro */
+            --card-bg: #FFFFFF;      /* Cards brancos */
+            --text: #333333;         /* Texto principal escuro */
+            --text-muted: #666666;   /* Texto secundário cinza */
+            --gold: #C5A059;         /* Dourado mais "Areia" */
+            --gold-dark: #8D6E3F;    /* Dourado escuro para contraste */
+            
+            /* Overlay do Hero (Mantive escuro com transparência para ler o texto branco na capa) */
+            --overlay: linear-gradient(90deg, rgba(0,0,0,0.4) 15%, rgba(0,0,0,0.2) 60%, transparent 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            font-family: 'Manrope', sans-serif;
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Manrope', sans-serif; 
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* TIPOGRAFIA */
-        h1, h2, h3, .serif-font {
-            font-family: 'Cinzel', serif;
-            font-weight: 400;
-        }
-
-        /* --- 1. HERO SECTION (CAPA) --- */
+        /* --- 1. HERO LATERAL --- */
         .hero {
             height: 100vh;
             width: 100%;
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            align-items: center; 
+            justify-content: flex-start;
         }
-
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('fachada_light.jpg'); /* ARQUIVO SOLICITADO */
-            background-size: cover;
-            background-position: center;
+            background-image: url('fachada_light.jpg'); /* FOTO DA FACHADA LIGHT */
+            background-size: cover; background-position: center;
             z-index: 1;
         }
-
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            background: var(--overlay);
             z-index: 2;
         }
-
         .hero-content {
-            position: relative; z-index: 3;
-            color: var(--white);
-            max-width: 800px;
+            position: relative; z-index: 10;
+            margin-left: 5%; 
+            max-width: 650px; 
             padding: 20px;
-            opacity: 0; /* Para animação */
-            transform: translateY(30px);
-            animation: heroFadeIn 1.5s ease forwards;
+            text-align: left;
+            animation: fadeRight 1.5s ease;
         }
-
-        .hero-tag {
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            display: block;
-            color: #F0F0F0;
+        
+        .hero-tag { 
+            letter-spacing: 4px; text-transform: uppercase; color: #FFF; /* Tag branca na foto */
+            font-size: 0.8rem; margin-bottom: 10px; display: block; font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-
-        .hero-title {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        .hero-title { 
+            font-family: 'Cinzel', serif; font-size: 4rem; line-height: 0.9; margin-bottom: 25px; 
+            color: #FFF; text-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
-
-        .hero-price {
-            font-size: 1.5rem;
-            font-weight: 300;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
-            padding: 10px 30px;
-            border: 1px solid rgba(255,255,255,0.4);
-            display: inline-block;
-            letter-spacing: 1px;
+        .hero-price { 
+            border: 1px solid #FFF; color: #FFF; 
+            padding: 12px 35px; font-size: 1.3rem; display: inline-block; 
+            background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+            margin-bottom: 10px;
         }
 
         /* --- 2. SPECS BAR --- */
         .specs-bar {
-            background: var(--white);
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 10;
-            margin-top: -50px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 4px;
+            background: var(--card-bg);
+            padding: 30px 40px;
+            display: flex; justify-content: space-between; gap: 30px;
+            /* Sombra mais suave para o tema light */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            position: relative; z-index: 20; margin-top: -60px;
+            width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto;
+            border: 1px solid #E0E0E0; /* Borda cinza claro */
+            flex-wrap: wrap; 
         }
+        .spec-item { text-align: center; flex: 1; min-width: 80px; }
+        
+        /* Cor dos números ajustada para o tema claro */
+        .spec-value { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text); display: block; margin-bottom: 5px; }
+        .spec-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
+        .divider { width: 1px; background: #E0E0E0; height: 40px; align-self: center; }
 
-        .spec-item {
-            text-align: center;
-        }
-
-        .spec-value {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: var(--gold-sand);
-            display: block;
-        }
-
-        .spec-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
-
-        /* --- 3. SEÇÕES GERAIS (LAYOUT ZIG-ZAG) --- */
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px;
-        }
-
-        .room-row {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            margin-bottom: 150px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
-
-        .room-row.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Inverte a ordem para efeito Zig-Zag */
-        .room-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .room-text {
-            flex: 1;
-        }
-
-        .room-text h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .room-text p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .highlight-line {
-            width: 60px;
-            height: 2px;
-            background-color: var(--gold-sand);
-            margin-bottom: 25px;
-        }
-
-        /* Grid de Imagens */
-        .room-images {
-            flex: 1.3;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 15px;
-            height: 500px;
-        }
-
-        .img-box {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 2px;
-        }
-
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .img-box:hover img {
-            transform: scale(1.05);
-        }
-
-        /* --- 4. RODAPÉ --- */
-        .footer {
-            background-color: var(--white);
-            border-top: 1px solid #EAEAEA;
+        /* --- 3. DESTAQUES --- */
+        .features-section {
             padding: 80px 20px;
-            text-align: center;
+            max-width: 1000px; margin: 0 auto;
+        }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        .section-desc { max-width: 600px; margin: 0 auto; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; }
+
+        .features-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        .feature-box {
+            border-left: 2px solid var(--gold); padding-left: 20px;
+        }
+        .feature-box h4 { font-family: 'Cinzel'; font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
+        .feature-box p { color: var(--text-muted); line-height: 1.5; font-size: 0.9rem; }
+
+        /* --- 4. CARROSSEL ZIG-ZAG (ESTRUTURA MANTIDA) --- */
+        .room-section { margin-bottom: 100px; position: relative; margin-top: 80px; }
+        
+        .room-title-sticky {
+            padding: 0 5%; margin-bottom: 25px;
+            font-family: 'Cinzel', serif; font-size: 2rem; color: var(--text);
+            border-left: 3px solid var(--gold); margin-left: 5%;
+            padding-left: 20px;
         }
 
-        .broker-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .room-track {
+            display: flex; gap: 20px; overflow-x: auto;
+            padding: 0 5% 30px; 
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        }
+        .room-track::-webkit-scrollbar { display: none; }
+
+        /* Card de Texto (Ajustado para Light) */
+        .room-info-card {
+            min-width: 350px; scroll-snap-align: start;
+            background: var(--card-bg); /* Fundo branco */
+            border: 1px solid #E0E0E0;
+            padding: 40px; display: flex; flex-direction: column; justify-content: center;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1); /* Sombra suave */
+            margin-right: -40px; z-index: 5; 
+            height: 450px;
+        }
+        
+        .room-info-card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
+        .room-info-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 25px; }
+        
+        /* Seta (Cor ajustada para visibilidade no tema claro) */
+        .swipe-hint { font-size: 0.7rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 1; }
+        .swipe-hint::after { content: ' →'; } 
+        
+        /* Fotos */
+        .photo-card {
+            min-width: 600px; height: 450px; scroll-snap-align: center;
+            overflow: hidden; border: 1px solid #E0E0E0; position: relative;
+        }
+        .photo-card::after { 
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            /* Sombra interna mais suave no light mode para não escurecer demais a foto */
+            background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 20%);
+        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; }
+        .photo-card:hover img { transform: scale(1.05); }
+
+        /* --- LÓGICA DE INVERSÃO (RTL) - MANTIDA --- */
+        section:nth-of-type(odd) .room-title-sticky {
+            text-align: right;
+            border-left: none;
+            border-right: 3px solid var(--gold);
+            margin-left: 0; margin-right: 5%;
+            padding-left: 0; padding-right: 20px;
+        }
+        
+        section:nth-of-type(odd) .room-track { direction: rtl; }
+
+        section:nth-of-type(odd) .room-info-card {
+            direction: ltr; text-align: left;
+            margin-right: 0; margin-left: -40px; 
+        }
+
+        section:nth-of-type(odd) .swipe-hint::after { content: ' ←'; }
+        
+        section:nth-of-type(odd) .photo-card { direction: ltr; }
+
+        /* --- MARCA D'ÁGUA --- */
+        .watermark-layer {
+            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            z-index: 9999; pointer-events: none;
+            /* Assume-se que a logo é escura ou usaremos mix-blend para aparecer no fundo claro */
+            background-image: url('logo_corretores.jpg'); /* Usando a imagem da lista */
+            background-repeat: repeat; background-size: 300px; 
+            opacity: 0.03; transform: rotate(-30deg); 
+            /* No tema claro, exclusion funciona, ou normal com baixa opacidade */
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: #FFFFFF; color: var(--text); text-align: center;
+            padding: 80px 20px 120px; margin-top: 50px; border-top: 1px solid #E0E0E0;
+        }
+        .broker-img {
+            width: 100px; height: 100px; border-radius: 50%;
+            border: 2px solid var(--gold); margin-bottom: 20px;
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 2px solid var(--gold-sand);
-            padding: 3px;
         }
 
-        .footer h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: var(--text-dark);
-        }
-
-        .footer p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .mogul-brand {
-            margin-top: 40px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #999;
-        }
-
-        /* --- BOTÃO FLUTUANTE --- */
+        /* --- CTA FLUTUANTE --- */
         .cta-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--text-dark);
-            color: var(--white);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            position: fixed; bottom: 30px; right: 30px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: #FFF; /* Texto branco no botão dourado */
+            padding: 18px 40px; 
+            border-radius: 50px; 
+            text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
+            z-index: 100; transition: transform 0.3s;
         }
+        .cta-float:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(197, 160, 89, 0.6); }
 
-        .cta-float:hover {
-            background-color: var(--gold-sand);
-            transform: translateY(-5px);
-        }
+        @keyframes fadeRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* ANIMAÇÕES */
-        @keyframes heroFadeIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- RESPONSIVIDADE (MOBILE) --- */
+        /* --- MOBILE --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: 3rem; }
+            .specs-bar { 
+                display: grid; grid-template-columns: 1fr 1fr; gap: 20px; 
+                width: 95%; margin-top: -30px; padding: 20px; 
+            }
+            .spec-item:last-child { grid-column: span 2; } /* Centraliza o ultimo se for impar */
+            .divider { display: none; }
+            .features-grid { grid-template-columns: 1fr; gap: 30px; }
             
-            .specs-bar {
-                flex-wrap: wrap;
-                gap: 30px;
-                width: 90%;
-                margin-top: -30px;
-                padding: 30px;
-            }
-
-            .section-container { padding: 60px 20px; }
-
-            .room-row {
-                flex-direction: column !important; /* Remove Zig-Zag no mobile */
-                gap: 30px;
-                margin-bottom: 80px;
-            }
-
-            .room-images {
-                width: 100%;
-                height: 350px;
-            }
+            .room-info-card { min-width: 88vw; margin-right: 15px; height: auto; padding: 30px; }
+            section:nth-of-type(odd) .room-info-card { margin-left: 15px; margin-right: 0; }
+            .photo-card { min-width: 88vw; height: 300px; }
+            .watermark-layer { background-size: 150px; } 
 
             .cta-float {
-                right: 20px;
-                left: 20px;
-                justify-content: center;
-                bottom: 20px;
+                left: 50%; transform: translateX(-50%); width: 90%; 
+                bottom: 20px; padding: 14px 0; font-size: 0.9rem; 
+                text-align: center; right: auto;
             }
+            body { padding-bottom: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- MARCA D'ÁGUA -->
+    <div class="watermark-layer"></div>
+
+    <!-- HERO -->
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
@@ -329,112 +258,122 @@
         </div>
     </header>
 
-    <!-- SPECS BAR -->
+    <!-- SPECS -->
     <div class="specs-bar">
         <div class="spec-item">
             <span class="spec-value">450m²</span>
             <span class="spec-label">Área Total</span>
         </div>
+        <div class="divider"></div>
         <div class="spec-item">
             <span class="spec-value">4</span>
             <span class="spec-label">Suítes</span>
         </div>
+        <div class="divider"></div>
         <div class="spec-item">
             <span class="spec-value">3</span>
             <span class="spec-label">Vagas</span>
         </div>
     </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="section-container">
+    <!-- DESTAQUES -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="section-title">Onde o Luxo Encontra o Mar</h2>
+            <p class="section-desc">
+                Um refúgio pé na areia com design biofílico. Ambientes integrados, iluminação natural abundante e acabamentos em tons de areia que trazem a tranquilidade da praia para dentro de casa.
+            </p>
+        </div>
 
-        <!-- SEÇÃO 1: LIVING (Texto Esquerda / Fotos Direita) -->
-        <section class="room-row scroll-reveal">
-            <div class="room-text">
-                <div class="highlight-line"></div>
-                <h2>Living Infinito</h2>
-                <p>
-                    Onde a arquitetura desaparece para dar lugar à natureza. O living com pé-direito duplo e paredes de vidro retráteis cria uma fusão perfeita entre interior e exterior. A luz natural inunda o ambiente, realçando os tons de areia e madeira nobre, proporcionando uma atmosfera de frescor e liberdade absoluta.
-                </p>
-                <p style="font-size: 0.9rem; font-weight: 600; color: var(--gold-sand);">AMPLITUDE & INTEGRAÇÃO</p>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h4>Pé na Areia</h4>
+                <p>Acesso direto e exclusivo à praia, sem barreiras visuais.</p>
             </div>
-            <div class="room-images">
-                <div class="img-box"><img src="sala1_light.jpg" alt="Sala de Estar Ampla"></div>
-                <div class="img-box"><img src="sala2_light.jpg" alt="Sala Integrada"></div>
+            <div class="feature-box">
+                <h4>Design Natural</h4>
+                <p>Uso de madeira, pedra e vidro para harmonia total com a paisagem.</p>
             </div>
-        </section>
+            <div class="feature-box">
+                <h4>Living Open Concept</h4>
+                <p>Salas e cozinha integradas com vista panorâmica do oceano.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Sustentabilidade</h4>
+                <p>Iluminação inteligente e ventilação cruzada em todos os cômodos.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- SEÇÃO 2: SUÍTE (Texto Direita / Fotos Esquerda no Desktop) -->
-        <section class="room-row scroll-reveal">
-            <div class="room-text">
-                <div class="highlight-line"></div>
-                <h2>Despertar Oceânico</h2>
-                <p>
-                    Mais do que um quarto, um santuário de paz. A Suíte Master foi desenhada para que o mar seja a primeira coisa que você vê ao acordar. Com isolamento acústico premium e acabamentos em linho e pedra natural, o conforto é absoluto. O banheiro spa convida ao relaxamento com uma vista privativa para o horizonte.
-                </p>
-                <p style="font-size: 0.9rem; font-weight: 600; color: var(--gold-sand);">PRIVACIDADE & SILÊNCIO</p>
+    <!-- CÔMODO 1: LIVING -->
+    <section class="room-section">
+        <div class="room-title-sticky">Living Principal</div>
+        <div class="room-track">
+            <!-- Card de Texto -->
+            <div class="room-info-card">
+                <h3>Luz &<br>Integração</h3>
+                <p>Aberturas do chão ao teto convidam a luz do sol a entrar. O living conecta-se fluidamente com a área externa, criando um espaço perfeito para receber e relaxar.</p>
+                <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-            <div class="room-images">
-                <div class="img-box"><img src="quarto1_light.jpg" alt="Suíte Master Vista Mar"></div>
-                <div class="img-box"><img src="quarto2_light.jpg" alt="Banheiro de Luxo"></div>
-            </div>
-        </section>
+            <!-- Fotos -->
+            <div class="photo-card"><img src="sala1_light.jpg" alt="Sala Clara"></div>
+            <div class="photo-card"><img src="sala2_light.jpg" alt="Sala Detalhes"></div>
+        </div>
+    </section>
 
-        <!-- SEÇÃO 3: LAZER (Texto Esquerda / Fotos Direita) -->
-        <section class="room-row scroll-reveal">
-            <div class="room-text">
-                <div class="highlight-line"></div>
-                <h2>Oasis Particular</h2>
-                <p>
-                    Receba amigos com estilo ou aproveite momentos de solitude. A área externa conta com uma piscina de borda infinita que parece se fundir com o oceano. O espaço gourmet integrado ao deck permite experiências gastronômicas ao ar livre, sentindo a brisa do mar em um cenário cinematográfico.
-                </p>
-                <p style="font-size: 0.9rem; font-weight: 600; color: var(--gold-sand);">LAZER PÉ NA AREIA</p>
+    <!-- CÔMODO 2: SUÍTE (INVERTIDO ZIG-ZAG) -->
+    <section class="room-section">
+        <div class="room-title-sticky">Master Suite</div>
+        <div class="room-track">
+            <!-- Card de Texto -->
+            <div class="room-info-card">
+                <h3>O Som<br>do Mar</h3>
+                <p>Acorde com a brisa do oceano. A suíte master oferece vista total para o horizonte e um acabamento suave que garante noites de sono reparadoras.</p>
+                <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-            <div class="room-images">
-                <div class="img-box"><img src="lazer1_light.jpg" alt="Piscina Borda Infinita"></div>
-                <div class="img-box"><img src="lazer2_light.jpg" alt="Área Gourmet Externa"></div>
+            <!-- Fotos -->
+            <div class="photo-card"><img src="quarto1_light.jpg" alt="Quarto Vista Mar"></div>
+            <div class="photo-card"><img src="quarto2_light.jpg" alt="Quarto Claro"></div>
+        </div>
+    </section>
+
+    <!-- CÔMODO 3: LAZER -->
+    <section class="room-section">
+        <div class="room-title-sticky">Outdoor Living</div>
+        <div class="room-track">
+            <!-- Card de Texto -->
+            <div class="room-info-card">
+                <h3>Horizonte<br>Infinito</h3>
+                <p>A piscina de borda infinita funde-se com o mar azul. Área gourmet completa para churrascos ao pôr do sol com a família e amigos.</p>
+                <div class="swipe-hint">DESLIZE PARA VER</div>
             </div>
-        </section>
+            <!-- Fotos -->
+            <div class="photo-card"><img src="lazer1_light.jpg" alt="Piscina"></div>
+            <div class="photo-card"><img src="lazer2_light.jpg" alt="Área Externa"></div>
+        </div>
+    </section>
 
-    </main>
-
-    <!-- RODAPÉ -->
+    <!-- FOOTER COM CORRETOR -->
     <footer class="footer">
-        <img src="corretor.jpg" alt="Ricardo Mendes" class="broker-avatar">
-        <h3>Ricardo Mendes</h3>
+        <!-- Foto do corretor -->
+        <img src="corretores.jpg" class="broker-img" alt="Ricardo Mendes">
+        <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Ricardo Mendes</h3>
         <p>Consultoria Imobiliária de Luxo</p>
-        <div class="mogul-brand">
-            Powered by <strong>Mogul Tech</strong>
+        <br><br>
+        
+        <div style="opacity: 0.9; margin-top: 20px;">
+            <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase;">
+                Powered by
+            </p>
+            <!-- Logo usando o arquivo solicitado -->
+            <img src="logo_corretores.jpg" alt="Mogul Tech" style="width: 160px; height: auto; display: block; margin: 0 auto; filter: grayscale(100%); opacity: 0.7;">
         </div>
     </footer>
 
-    <!-- BOTÃO WHATSAPP -->
+    <!-- BOTÃO DE AÇÃO -->
     <a href="https://wa.me/5548999999999" class="cta-float">
-        Agendar Visita <span>&#8594;</span>
+        Agendar Visita VIP 🔑
     </a>
 
-    <!-- SCRIPT DE ANIMAÇÃO (SCROLL REVEAL) -->
-    <script>
-        // Função simples para animar elementos quando aparecem na tela
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.2 // Dispara quando 20% do elemento estiver visível
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Para de observar após animar
-                    }
-                });
-            }, observerOptions);
-
-            const elements = document.querySelectorAll('.scroll-reveal');
-            elements.forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
