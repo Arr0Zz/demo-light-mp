@@ -4,33 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. OTIMIZAÇÃO DE METADADOS (IMPACTO WHATSAPP/INSTA) -->
-    <title>Beach House Horizon | Exclusive Listing</title>
-    <meta property="og:title" content="Beach House Horizon - Onde o Luxo Encontra o Mar">
-    <meta property="og:description" content="Refúgio pé na areia com design biofílico em Florianópolis. R$ 4.5M.">
-    <meta property="og:image" content="sala1_light.jpg"> <!-- Aponta para a foto mais bonita -->
+    <!-- 1. OTIMIZAÇÃO DE METADADOS (PREVIEW DE ALTO IMPACTO) -->
+    <title>Tramonto Residence | Unidade Exclusiva Meia Praia</title>
+    <meta property="og:title" content="Tramonto Residence | Unidade Exclusiva Meia Praia">
+    <meta property="og:description" content="A essência do luxo em Itapema. 3 Suítes a 300m do mar. Condições exclusivas de investimento.">
+    <!-- Instrução: A imagem abaixo deve ter exatamente 1200x630px para um card perfeito no WhatsApp -->
+    <meta property="og:image" content="tramonto_living_1200x630.jpg"> 
     <meta property="og:type" content="website">
 
-    <!-- 3. FAVICON CUSTOMIZADO (ÁGUIA) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+    <!-- FAVICON CUSTOMIZADO (ÁGUIA) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦅</text></svg>">
     
+    <!-- TIPOGRAFIA E ÍCONES -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- LUMINOUS LIGHTBOX (Para Zoom em Tela Cheia) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.4/luminous-basic.min.css">
     
     <style>
         :root {
-            /* TEMA LIGHT / PRAIA */
+            /* TEMA CLEAN LUXURY */
             --bg: #F9F9F9;
             --card-bg: #FFFFFF;
-            --text: #333333;
+            --text: #222222;
             --text-muted: #666666;
             --gold: #C5A059;
             --gold-dark: #8D6E3F;
-            --overlay: linear-gradient(90deg, rgba(0,0,0,0.4) 15%, rgba(0,0,0,0.2) 60%, transparent 100%);
+            --overlay: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* 2. MICRO-INTERAÇÕES: SCROLL SUAVE */
         html { scroll-behavior: smooth; }
         
         body { 
@@ -40,311 +44,401 @@
             overflow-x: hidden;
         }
 
-        /* HERO */
+        /* MICRO-ANIMAÇÕES (Fade In Up) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO SECTION */
         .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center; 
-            justify-content: flex-start;
+            height: 100vh; width: 100%; position: relative;
+            display: flex; align-items: center; justify-content: flex-start;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('fachada_light.jpg');
-            background-size: cover; background-position: center;
-            z-index: 1;
+            background-image: url('tramonto_fachada.jpg'); /* INSERIR FOTO AQUI */
+            background-size: cover; background-position: center; z-index: 1;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--overlay);
-            z-index: 2;
+            background: var(--overlay); z-index: 2;
         }
         .hero-content {
-            position: relative; z-index: 10;
-            margin-left: 5%; 
-            max-width: 650px; 
-            padding: 20px;
-            text-align: left;
-            animation: fadeRight 1.5s ease;
+            position: relative; z-index: 10; margin-left: 5%; 
+            max-width: 650px; padding: 20px;
+            animation: fadeInRight 1.5s ease;
         }
-        
         .hero-tag { 
-            letter-spacing: 4px; text-transform: uppercase; color: #FFF;
-            font-size: 0.8rem; margin-bottom: 10px; display: block; font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
+            font-size: 0.85rem; margin-bottom: 10px; display: block; font-weight: 700;
         }
         .hero-title { 
-            font-family: 'Cinzel', serif; font-size: 4rem; line-height: 0.9; margin-bottom: 25px; 
+            font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 1; margin-bottom: 25px; 
             color: #FFF; text-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
         .hero-price { 
-            border: 1px solid #FFF; color: #FFF; 
-            padding: 12px 35px; font-size: 1.3rem; display: inline-block; 
-            background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
-            margin-bottom: 10px;
+            border-left: 3px solid var(--gold); color: #FFF; 
+            padding: 5px 15px; font-size: 1.2rem; display: inline-block; 
+            backdrop-filter: blur(2px); font-weight: 300;
         }
 
         /* SPECS BAR */
         .specs-bar {
-            background: var(--card-bg);
-            padding: 30px 40px;
+            background: var(--card-bg); padding: 35px 40px;
             display: flex; justify-content: space-between; gap: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
             position: relative; z-index: 20; margin-top: -60px;
             width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto;
-            border: 1px solid #E0E0E0;
-            flex-wrap: wrap; 
+            border: 1px solid #EAEAEA; flex-wrap: wrap; 
         }
-        .spec-item { text-align: center; flex: 1; min-width: 80px; }
-        .spec-value { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text); display: block; margin-bottom: 5px; }
-        .spec-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
-        .divider { width: 1px; background: #E0E0E0; height: 40px; align-self: center; }
+        .spec-item { text-align: center; flex: 1; min-width: 90px; }
+        .spec-value { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--text); display: block; margin-bottom: 5px; }
+        .spec-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 600; }
+        .divider { width: 1px; background: #EAEAEA; height: 50px; align-self: center; }
 
-        /* DESTAQUES */
-        .features-section {
-            padding: 80px 20px;
-            max-width: 1000px; margin: 0 auto;
+        /* ONDE A VIDA ACONTECE (LIFESTYLE MAP) */
+        .lifestyle-section {
+            padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; text-align: center;
         }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-title { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
-        .section-desc { max-width: 600px; margin: 0 auto; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--text); margin-bottom: 15px; }
+        .section-title span { color: var(--gold); }
+        .lifestyle-list {
+            margin-top: 50px; display: flex; flex-direction: column; gap: 30px; text-align: left;
+        }
+        .lifestyle-item {
+            display: flex; align-items: center; gap: 20px;
+            background: var(--card-bg); padding: 25px; border: 1px solid #EAEAEA;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: transform 0.3s ease;
+        }
+        .lifestyle-item:hover { transform: translateX(10px); border-color: var(--gold); }
+        .lifestyle-icon {
+            font-size: 2rem; color: var(--gold); min-width: 50px; text-align: center;
+        }
+        .lifestyle-text h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 5px; }
+        .lifestyle-text p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
-        .features-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-        }
-        .feature-box {
-            border-left: 2px solid var(--gold); padding-left: 20px;
-        }
-        .feature-box h4 { font-family: 'Cinzel'; font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
-        .feature-box p { color: var(--text-muted); line-height: 1.5; font-size: 0.9rem; }
-
-        /* CARROSSEL ZIG-ZAG */
-        .room-section { margin-bottom: 100px; position: relative; margin-top: 80px; }
+        /* CARROSSEL ZIG-ZAG (TOUR DE DETALHES) */
+        .room-section { margin-bottom: 80px; position: relative; margin-top: 60px; }
         
         .room-title-sticky {
             padding: 0 5%; margin-bottom: 25px;
             font-family: 'Cinzel', serif; font-size: 2rem; color: var(--text);
-            border-left: 3px solid var(--gold); margin-left: 5%;
-            padding-left: 20px;
+            border-left: 3px solid var(--gold); margin-left: 5%; padding-left: 20px;
         }
 
+        .carousel-container { position: relative; }
         .room-track {
             display: flex; gap: 20px; overflow-x: auto;
-            padding: 0 5% 30px; 
+            padding: 0 5% 15px; 
             scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
         }
         .room-track::-webkit-scrollbar { display: none; }
 
         .room-info-card {
             min-width: 350px; scroll-snap-align: start;
-            background: var(--card-bg);
-            border: 1px solid #E0E0E0;
+            background: var(--card-bg); border: 1px solid #EAEAEA;
             padding: 40px; display: flex; flex-direction: column; justify-content: center;
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
-            margin-right: -40px; z-index: 5; 
-            height: 450px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+            margin-right: -40px; z-index: 5; height: 450px;
         }
-        
         .room-info-card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
         .room-info-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 25px; }
         
-        .swipe-hint { font-size: 0.7rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 1; }
-        .swipe-hint::after { content: ' →'; } 
-        
         .photo-card {
             min-width: 600px; height: 450px; scroll-snap-align: center;
-            overflow: hidden; border: 1px solid #E0E0E0; position: relative;
+            overflow: hidden; position: relative; border: 1px solid #EAEAEA; cursor: zoom-in;
         }
-        .photo-card::after { 
-            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 20%);
-        }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; }
-        
-        /* 2. MICRO-INTERAÇÕES: HOVER NAS FOTOS */
-        .photo-card img:hover { transform: scale(1.08); transition: transform 0.8s ease-in-out; }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease-in-out; }
+        .photo-card:hover img { transform: scale(1.05); }
 
-        /* LÓGICA RTL */
-        section:nth-of-type(odd) .room-title-sticky {
+        /* PAGINAÇÃO DO CARROSSEL (PONTINHOS) */
+        .carousel-indicators {
+            display: flex; justify-content: center; gap: 8px; margin-top: 15px;
+        }
+        .dot {
+            width: 8px; height: 8px; border-radius: 50%; background: #D1D1D1; transition: background 0.3s;
+        }
+        .dot.active { background: var(--gold); transform: scale(1.2); }
+
+        /* LÓGICA RTL (Zig-Zag) */
+        section:nth-of-type(even) .room-title-sticky {
             text-align: right; border-left: none; border-right: 3px solid var(--gold);
             margin-left: 0; margin-right: 5%; padding-left: 0; padding-right: 20px;
         }
-        section:nth-of-type(odd) .room-track { direction: rtl; }
-        section:nth-of-type(odd) .room-info-card { direction: ltr; text-align: left; margin-right: 0; margin-left: -40px; }
-        section:nth-of-type(odd) .swipe-hint::after { content: ' ←'; }
-        section:nth-of-type(odd) .photo-card { direction: ltr; }
+        section:nth-of-type(even) .room-track { direction: rtl; }
+        section:nth-of-type(even) .room-info-card { direction: ltr; text-align: left; margin-right: 0; margin-left: -40px; }
+        section:nth-of-type(even) .photo-card { direction: ltr; }
 
-        /* MARCA D'ÁGUA */
-        .watermark-layer {
-            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
-            z-index: 9999; pointer-events: none;
-            background-image: url('logo.png');
-            background-repeat: repeat; background-size: 300px; 
-            opacity: 0.03; transform: rotate(-30deg); 
+        /* BLOCO FINANCEIRO (PROPOSTA EMBUTIDA) */
+        .financial-section {
+            max-width: 800px; margin: 80px auto; padding: 0 20px; text-align: center;
         }
+        .financial-box {
+            background: var(--card-bg); border: 1px solid var(--gold); padding: 50px 30px;
+            box-shadow: 0 20px 50px rgba(197, 160, 89, 0.15); border-radius: 4px;
+        }
+        .fin-title { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 30px; color: var(--text); }
+        .price-cash { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold); font-weight: 700; margin-bottom: 20px; }
+        .price-cash span { font-size: 1rem; color: var(--text-muted); font-family: 'Manrope'; display: block; font-weight: 400; margin-bottom: 5px; }
+        .fin-divider { width: 60px; height: 2px; background: var(--gold); margin: 25px auto; }
+        .price-plan { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+        .price-plan strong { color: var(--text); }
 
-        /* FOOTER */
+        /* FOOTER & CTA */
         .footer {
             background: #FFFFFF; color: var(--text); text-align: center;
-            padding: 80px 20px 120px; margin-top: 50px; border-top: 1px solid #E0E0E0;
+            padding: 80px 20px 120px; border-top: 1px solid #EAEAEA;
         }
         .broker-img {
-            width: 100px; height: 100px; border-radius: 50%;
-            border: 2px solid var(--gold); margin-bottom: 20px;
-            object-fit: cover;
+            width: 90px; height: 90px; border-radius: 50%;
+            border: 2px solid var(--gold); margin-bottom: 15px; object-fit: cover;
         }
-
-        /* CTA */
         .cta-float {
             position: fixed; bottom: 30px; right: 30px;
-            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
-            color: #FFF; padding: 18px 40px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
-            z-index: 100; transition: transform 0.3s;
+            background: linear-gradient(45deg, var(--text), #000000);
+            color: #FFF; padding: 18px 40px; border-radius: 50px; text-decoration: none; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); z-index: 100; transition: transform 0.3s;
+            border: 1px solid #333;
         }
-        .cta-float:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(197, 160, 89, 0.6); }
+        .cta-float i { color: var(--gold); margin-right: 8px; }
+        .cta-float:hover { transform: translateY(-5px); }
 
-        @keyframes fadeRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
+        /* RESPONSIVO MOBILE */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .specs-bar { 
-                display: grid; grid-template-columns: 1fr 1fr; gap: 20px; 
-                width: 95%; margin-top: -30px; padding: 20px; 
-            }
+            .hero-title { font-size: 3.2rem; }
+            .specs-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 95%; padding: 25px 15px; }
             .spec-item:last-child { grid-column: span 2; }
             .divider { display: none; }
-            .features-grid { grid-template-columns: 1fr; gap: 30px; }
-            .room-info-card { min-width: 88vw; margin-right: 15px; height: auto; padding: 30px; }
-            section:nth-of-type(odd) .room-info-card { margin-left: 15px; margin-right: 0; }
-            .photo-card { min-width: 88vw; height: 300px; }
-            .watermark-layer { background-size: 150px; } 
-            .cta-float { left: 50%; transform: translateX(-50%); width: 90%; bottom: 20px; padding: 14px 0; font-size: 0.9rem; text-align: center; right: auto; }
-            body { padding-bottom: 40px; }
+            .room-info-card { min-width: 85vw; margin-right: 15px; height: auto; padding: 30px; box-shadow: none; }
+            section:nth-of-type(even) .room-info-card { margin-left: 15px; margin-right: 0; }
+            .photo-card { min-width: 85vw; height: 350px; }
+            .lifestyle-item { flex-direction: column; text-align: center; padding: 30px 15px; }
+            .cta-float { left: 50%; transform: translateX(-50%); width: 90%; bottom: 20px; text-align: center; right: auto; }
+            .cta-float:hover { transform: translateX(-50%) translateY(-2px); }
+            .financial-box { padding: 40px 20px; }
         }
+
+        /* LUMINOUS CUSTOMIZAÇÃO FOSCA */
+        .lum-lightbox.lum-open { background: rgba(15, 15, 15, 0.98); }
     </style>
 </head>
 <body>
 
-    <div class="watermark-layer"></div>
-
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-tag">Florianópolis | Exclusive</span>
-            <h1 class="hero-title">Beach House<br>Horizon</h1>
-            <div class="hero-price">R$ 4.500.000</div>
+            <span class="hero-tag">Itapema | Meia Praia</span>
+            <h1 class="hero-title">Tramonto<br>Residence</h1>
+            <div class="hero-price">A partir de R$ 1.400.000</div>
         </div>
     </header>
 
-    <div class="specs-bar">
+    <!-- ESPECIFICAÇÕES (ANIMADAS NO SCROLL) -->
+    <div class="specs-bar fade-in-up">
         <div class="spec-item">
-            <span class="spec-value">450m²</span>
-            <span class="spec-label">Área Total</span>
-        </div>
-        <div class="divider"></div>
-        <div class="spec-item">
-            <span class="spec-value">4</span>
-            <span class="spec-label">Suítes</span>
+            <span class="spec-value">130m²</span>
+            <span class="spec-label">Área Privativa</span>
         </div>
         <div class="divider"></div>
         <div class="spec-item">
             <span class="spec-value">3</span>
+            <span class="spec-label">Suítes</span>
+        </div>
+        <div class="divider"></div>
+        <div class="spec-item">
+            <span class="spec-value">2</span>
             <span class="spec-label">Vagas</span>
         </div>
     </div>
 
-    <section class="features-section">
-        <div class="section-header">
-            <h2 class="section-title">Onde o Luxo Encontra o Mar</h2>
-            <p class="section-desc">
-                Um refúgio pé na areia com design biofílico. Ambientes integrados, iluminação natural abundante e acabamentos em tons de areia que trazem a tranquilidade da praia para dentro de casa.
-            </p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-box">
-                <h4>Pé na Areia</h4>
-                <p>Acesso direto e exclusivo à praia, sem barreiras visuais.</p>
+    <!-- ONDE A VIDA ACONTECE (LIFESTYLE) -->
+    <section class="lifestyle-section fade-in-up">
+        <h2 class="section-title">Onde a Vida <span>Acontece</span></h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">A localização mais cobiçada de Itapema, projetada para quem não aceita menos que a excelência.</p>
+        
+        <div class="lifestyle-list">
+            <div class="lifestyle-item">
+                <div class="lifestyle-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="lifestyle-text">
+                    <h4>Localização Estratégica</h4>
+                    <p>Entre a Nereu Ramos e a 2ª Avenida: O coração pulsante e valorizado da Meia Praia.</p>
+                </div>
             </div>
-            <div class="feature-box">
-                <h4>Design Natural</h4>
-                <p>Uso de madeira, pedra e vidro para harmonia total com a paisagem.</p>
+            <div class="lifestyle-item">
+                <div class="lifestyle-icon"><i class="fa-solid fa-water"></i></div>
+                <div class="lifestyle-text">
+                    <h4>A 300m do Mar</h4>
+                    <p>Caminhada de apenas 3 minutos até a faixa de areia para você desfrutar o oceano todos os dias.</p>
+                </div>
             </div>
-            <div class="feature-box">
-                <h4>Living Open Concept</h4>
-                <p>Salas e cozinha integradas com vista panorâmica do oceano.</p>
-            </div>
-            <div class="feature-box">
-                <h4>Sustentabilidade</h4>
-                <p>Iluminação inteligente e ventilação cruzada em todos os cômodos.</p>
+            <div class="lifestyle-item">
+                <div class="lifestyle-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="lifestyle-text">
+                    <h4>Alta Gastronomia</h4>
+                    <p>A poucos passos dos melhores bistrôs, empórios e restaurantes da região.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CÔMODO 1: LIVING -->
-    <section class="room-section">
-        <div class="room-title-sticky">Living Principal</div>
-        <div class="room-track">
-            <div class="room-info-card">
-                <h3>Luz &<br>Integração</h3>
-                <p>Aberturas do chão ao teto convidam a luz do sol a entrar. O living conecta-se fluidamente com a área externa, criando um espaço perfeito para receber e relaxar.</p>
-                <div class="swipe-hint">DESLIZE PARA VER</div>
+    <section class="room-section fade-in-up">
+        <div class="room-title-sticky">Living Integrado</div>
+        <div class="carousel-container">
+            <div class="room-track">
+                <div class="room-info-card">
+                    <h3>Amplitude &<br>Conforto</h3>
+                    <p>Acabamento impecável em porcelanato de grande formato. Um espaço pensado para receber familiares e amigos com sofisticação e conforto absoluto.</p>
+                    <small style="color:var(--gold); font-weight:700; font-size:0.7rem; letter-spacing:1px;">CLIQUE NA FOTO PARA AMPLIAR</small>
+                </div>
+                <!-- Lightbox ativado pela tag <a> com a classe 'luminous-link' -->
+                <div class="photo-card">
+                    <a href="tramonto_living_1.jpg" class="luminous-link">
+                        <img src="tramonto_living_1.jpg" alt="Living Tramonto">
+                    </a>
+                </div>
+                <div class="photo-card">
+                    <a href="tramonto_living_2.jpg" class="luminous-link">
+                        <img src="tramonto_living_2.jpg" alt="Cozinha Tramonto">
+                    </a>
+                </div>
             </div>
-            <div class="photo-card"><img src="sala1_light.jpg" alt="Sala Clara"></div>
-            <div class="photo-card"><img src="sala2_light.jpg" alt="Sala Detalhes"></div>
+            <div class="carousel-indicators" aria-hidden="true">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+            </div>
         </div>
     </section>
 
-    <!-- CÔMODO 2: SUÍTE -->
-    <section class="room-section">
-        <div class="room-title-sticky">Master Suite</div>
-        <div class="room-track">
-            <div class="room-info-card">
-                <h3>O Som<br>do Mar</h3>
-                <p>Acorde com a brisa do oceano. A suíte master oferece vista total para o horizonte e um acabamento suave que garante noites de sono reparadoras.</p>
-                <div class="swipe-hint">DESLIZE PARA VER</div>
+    <!-- CÔMODO 2: SUÍTE MASTER -->
+    <section class="room-section fade-in-up">
+        <div class="room-title-sticky">Área Íntima</div>
+        <div class="carousel-container">
+            <div class="room-track">
+                <div class="room-info-card">
+                    <h3>Refúgio<br>Privativo</h3>
+                    <p>3 amplas suítes com persianas automatizadas, piso vinílico para conforto térmico e acústico, e uma master concebida como um verdadeiro spa particular.</p>
+                    <small style="color:var(--gold); font-weight:700; font-size:0.7rem; letter-spacing:1px;">CLIQUE NA FOTO PARA AMPLIAR</small>
+                </div>
+                <div class="photo-card">
+                    <a href="tramonto_suite_1.jpg" class="luminous-link">
+                        <img src="tramonto_suite_1.jpg" alt="Suíte Master">
+                    </a>
+                </div>
+                <div class="photo-card">
+                    <a href="tramonto_suite_2.jpg" class="luminous-link">
+                        <img src="tramonto_suite_2.jpg" alt="Banheiro Suíte">
+                    </a>
+                </div>
             </div>
-            <div class="photo-card"><img src="quarto1_light.jpg" alt="Quarto Vista Mar"></div>
-            <div class="photo-card"><img src="quarto2_light.jpg" alt="Quarto Claro"></div>
+            <div class="carousel-indicators" aria-hidden="true">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+            </div>
         </div>
     </section>
 
-    <!-- CÔMODO 3: LAZER -->
-    <section class="room-section">
-        <div class="room-title-sticky">Outdoor Living</div>
-        <div class="room-track">
-            <div class="room-info-card">
-                <h3>Horizonte<br>Infinito</h3>
-                <p>A piscina de borda infinita funde-se com o mar azul. Área gourmet completa para churrascos ao pôr do sol com a família e amigos.</p>
-                <div class="swipe-hint">DESLIZE PARA VER</div>
+    <!-- PROPOSTA COMERCIAL (O Filtro de Anderson) -->
+    <section class="financial-section fade-in-up">
+        <div class="financial-box">
+            <h2 class="fin-title">Condições de Aquisição</h2>
+            
+            <div class="price-cash">
+                <span>Investimento à Vista</span>
+                R$ 1.400.000,00 <i class="fa-regular fa-gem" style="font-size: 1.5rem;"></i>
             </div>
-            <div class="photo-card"><img src="lazer1_light.jpg" alt="Piscina"></div>
-            <div class="photo-card"><img src="lazer2_light.jpg" alt="Área Externa"></div>
+            
+            <div class="fin-divider"></div>
+            
+            <div class="price-plan">
+                <span>Plano de Investimento Direto:</span><br>
+                <strong>Entrada de R$ 600.000,00</strong> <br>
+                + 60 mensais de <strong>R$ 20.000,00</strong>
+            </div>
+            <p style="font-size: 0.8rem; color: #999; margin-top: 15px; font-style: italic;">*Valores sujeitos a alteração sem aviso prévio. Correção via CUB/SC.</p>
         </div>
     </section>
 
     <footer class="footer">
-        <img src="corretores.jpg" class="broker-img" alt="Ricardo Mendes">
-        <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Ricardo Mendes</h3>
-        <p>Consultoria Imobiliária de Luxo</p>
+        <img src="corretor_diogo.jpg" class="broker-img" alt="Diogo - Corretor">
+        <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Diogo Mendes</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Especialista em Alto Padrão - Itapema/SC</p>
         <br><br>
         
-        <!-- 5. O SELO "POWERED BY MOGUL PARTNERS" -->
+        <!-- SELO DE TECNOLOGIA -->
         <div style="opacity: 0.9; margin-top: 20px;">
             <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.5;">
                 Tecnologia de Vendas Exclusiva Mogul Partners 🦅<br>Proibida a reprodução de ativos.
             </p>
-            <img src="logo.png" alt="Mogul Tech" style="width: 160px; height: auto; display: block; margin: 0 auto; filter: grayscale(100%); opacity: 0.7;">
         </div>
     </footer>
 
-    <a href="https://wa.me/5548999999999" class="cta-float">
-        Agendar Visita VIP 🔑
+    <a href="https://wa.me/5547999999999?text=Olá%20Diogo!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Tramonto%20Residence." class="cta-float">
+        <i class="fa-brands fa-whatsapp"></i> Atendimento Exclusivo
     </a>
 
+    <!-- SCRIPTS MÍNIMOS (Performance e Interação) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.4/luminous.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. INICIALIZAÇÃO DO LIGHTBOX (Zoom Premium)
+            var luminousLinks = document.querySelectorAll('.luminous-link');
+            if(luminousLinks.length > 0) {
+                new LuminousGallery(luminousLinks, {
+                    arrowNavigation: true
+                }, {
+                    caption: function(trigger) { return trigger.querySelector('img').getAttribute('alt'); }
+                });
+            }
+
+            // 2. MICRO-ANIMAÇÕES DE SCROLL (Fade In Up)
+            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(element => {
+                observer.observe(element);
+            });
+
+            // 3. PAGINAÇÃO INTELIGENTE DO CARROSSEL
+            const carousels = document.querySelectorAll('.carousel-container');
+            carousels.forEach(container => {
+                const track = container.querySelector('.room-track');
+                const dots = container.querySelectorAll('.dot');
+                
+                track.addEventListener('scroll', () => {
+                    // Calcula qual item está em foco baseado na rolagem
+                    const scrollRatio = track.scrollLeft / (track.scrollWidth - track.clientWidth);
+                    // Garante que o index seja de 0 até dots.length - 1
+                    let index = Math.round(scrollRatio * (dots.length - 1));
+                    // Lógica RTL para a seção "Área Íntima" que desliza inverso
+                    if(getComputedStyle(track).direction === 'rtl') {
+                        index = (dots.length - 1) - index; 
+                    }
+                    
+                    dots.forEach(d => d.classList.remove('active'));
+                    if(dots[index]) dots[index].classList.add('active');
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
