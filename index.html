@@ -18,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- LUMINOUS LIGHTBOX (Zoom Premium) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.4/luminous-basic.min.css">
+    <!-- FANCYBOX LIGHTBOX (Zoom Premium com Navegação e Botão X) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 
     <style>
         :root {
@@ -45,14 +45,14 @@
             overflow-x: hidden;
         }
 
-        /* HERO - CORRIGIDO O NOME DA IMAGEM PARA fachada_luz.jpg */
+        /* HERO */
         .hero {
             height: 100vh; width: 100%; position: relative;
             display: flex; align-items: center; justify-content: flex-start;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('fachada_luz.jpg'); /* CORRIGIDO AQUI */
+            background-image: url('fachada_luz.jpg');
             background-size: cover; background-position: center; z-index: 1;
         }
         .hero-overlay {
@@ -94,7 +94,7 @@
         .spec-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
         .divider { width: 1px; background: #E0E0E0; height: 40px; align-self: center; }
 
-        /* NOVA SEÇÃO: ONDE A VIDA ACONTECE (LIFESTYLE) */
+        /* ONDE A VIDA ACONTECE (LIFESTYLE) */
         .features-section {
             padding: 80px 20px; max-width: 1000px; margin: 0 auto;
         }
@@ -141,7 +141,6 @@
         .swipe-hint { font-size: 0.7rem; color: var(--gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
         .swipe-hint::after { content: ' →'; } 
         
-        /* ADIÇÃO DO CURSOR DE ZOOM */
         .photo-card {
             min-width: 600px; height: 450px; scroll-snap-align: center;
             overflow: hidden; border: 1px solid #E0E0E0; position: relative; cursor: zoom-in;
@@ -168,7 +167,7 @@
         section:nth-of-type(odd) .swipe-hint::after { content: ' ←'; }
         section:nth-of-type(odd) .photo-card { direction: ltr; }
 
-        /* NOVA SEÇÃO: PROPOSTA FINANCEIRA */
+        /* PROPOSTA FINANCEIRA */
         .financial-section { padding: 40px 20px 80px; max-width: 800px; margin: 0 auto; text-align: center; }
         .financial-box {
             background: var(--card-bg); border: 1px solid var(--gold); padding: 40px;
@@ -225,8 +224,8 @@
             .financial-box { padding: 30px 20px; }
         }
 
-        /* CUSTOMIZAÇÃO DO ZOOM LIGHTBOX */
-        .lum-lightbox.lum-open { background: rgba(10, 10, 10, 0.95); }
+        /* CUSTOMIZAÇÃO DO FUNDO DO LIGHTBOX PARA MANTER O PADRÃO LUXO */
+        .fancybox__backdrop { background: rgba(10, 10, 10, 0.95) !important; }
     </style>
 </head>
 <body>
@@ -260,7 +259,6 @@
         </div>
     </div>
 
-    <!-- SUBSTITUÍDA A GRADE DE TEXTOS PELA LISTA ELEGANTE COM ÍCONES -->
     <section class="features-section">
         <div class="section-header">
             <h2 class="section-title">Onde a Vida Acontece</h2>
@@ -294,7 +292,7 @@
         </div>
     </section>
 
-    <!-- CÔMODO 1: LIVING (AGORA COM LIGHTBOX E IMAGENS DO SEU GITHUB) -->
+    <!-- CÔMODO 1: LIVING -->
     <section class="room-section">
         <div class="room-title-sticky">Living Integrado</div>
         <div class="carousel-wrapper">
@@ -305,17 +303,18 @@
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
                 <div class="photo-card">
-                    <a href="sala1_light.jpg" class="luminous-link"><img src="sala1_light.jpg" alt="Living Tramonto"></a>
+                    <!-- ADICIONADO data-fancybox="gallery" -->
+                    <a href="sala1_light.jpg" data-fancybox="gallery"><img src="sala1_light.jpg" alt="Living Tramonto"></a>
                 </div>
                 <div class="photo-card">
-                    <a href="sala2_light.jpg" class="luminous-link"><img src="sala2_light.jpg" alt="Detalhes Living"></a>
+                    <a href="sala2_light.jpg" data-fancybox="gallery"><img src="sala2_light.jpg" alt="Detalhes Living"></a>
                 </div>
             </div>
             <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
         </div>
     </section>
 
-    <!-- CÔMODO 2: SUÍTE (COM IMAGENS DO SEU GITHUB) -->
+    <!-- CÔMODO 2: SUÍTE -->
     <section class="room-section">
         <div class="room-title-sticky">Área Íntima</div>
         <div class="carousel-wrapper">
@@ -326,17 +325,17 @@
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
                 <div class="photo-card">
-                    <a href="quarto1_light.jpg" class="luminous-link"><img src="quarto1_light.jpg" alt="Suíte Master"></a>
+                    <a href="quarto1_light.jpg" data-fancybox="gallery"><img src="quarto1_light.jpg" alt="Suíte Master"></a>
                 </div>
                 <div class="photo-card">
-                    <a href="quarto2_light.jpg" class="luminous-link"><img src="quarto2_light.jpg" alt="Suíte Detalhes"></a>
+                    <a href="quarto2_light.jpg" data-fancybox="gallery"><img src="quarto2_light.jpg" alt="Suíte Detalhes"></a>
                 </div>
             </div>
             <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
         </div>
     </section>
 
-    <!-- CÔMODO 3: LAZER (COM IMAGENS DO SEU GITHUB) -->
+    <!-- CÔMODO 3: LAZER -->
     <section class="room-section">
         <div class="room-title-sticky">Rooftop Lazer</div>
         <div class="carousel-wrapper">
@@ -347,17 +346,16 @@
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
                 <div class="photo-card">
-                    <a href="lazer1_light.jpg" class="luminous-link"><img src="lazer1_light.jpg" alt="Área de Piscina"></a>
+                    <a href="lazer1_light.jpg" data-fancybox="gallery"><img src="lazer1_light.jpg" alt="Área de Piscina"></a>
                 </div>
                 <div class="photo-card">
-                    <a href="lazer2_light.jpg" class="luminous-link"><img src="lazer2_light.jpg" alt="Lazer Gourmet"></a>
+                    <a href="lazer2_light.jpg" data-fancybox="gallery"><img src="lazer2_light.jpg" alt="Lazer Gourmet"></a>
                 </div>
             </div>
             <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
         </div>
     </section>
 
-    <!-- BLOCO FINANCEIRO ADICIONADO AQUI -->
     <section class="financial-section">
         <div class="financial-box">
             <h2 class="fin-title">Condições de Aquisição</h2>
@@ -383,32 +381,26 @@
         <p>Especialista em Alto Padrão - Itapema/SC</p>
         <br><br>
         
-        <!-- SELO "POWERED BY MOGUL PARTNERS" MANTIDO -->
         <div style="opacity: 0.9; margin-top: 20px;">
             <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.5;">
                 Tecnologia de Vendas Exclusiva Mogul Partners 🦅<br>Proibida a reprodução de ativos.
             </p>
-            <!-- Usa logo.png ou logo-sem-fundo.png conforme seu GitHub -->
             <img src="logo.png" alt="Mogul Tech" style="width: 160px; height: auto; display: block; margin: 0 auto; filter: grayscale(100%); opacity: 0.7;">
         </div>
     </footer>
 
-    <!-- BOTÃO DO WHATSAPP COM ÍCONE -->
     <a href="https://wa.me/5547999999999?text=Olá%20Diogo!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Tramonto%20Residence." class="cta-float">
         <i class="fa-brands fa-whatsapp"></i> Falar com o Corretor
     </a>
 
     <!-- SCRIPTS PARA O ZOOM E BOLINHAS DE NAVEGAÇÃO -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.4/luminous.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Ativa o Lightbox nas fotos
-            var luminousLinks = document.querySelectorAll('.luminous-link');
-            if(luminousLinks.length > 0) {
-                new LuminousGallery(luminousLinks, { arrowNavigation: true }, {
-                    caption: function(trigger) { return trigger.querySelector('img').getAttribute('alt'); }
-                });
-            }
+            // Ativa o Lightbox com Navegação e Botão Fechar (X)
+            Fancybox.bind('[data-fancybox="gallery"]', {
+                Hash: false // Evita adicionar hash na URL
+            });
 
             // Ativa a lógica das bolinhas nos carrosséis
             const carousels = document.querySelectorAll('.carousel-wrapper');
