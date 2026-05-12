@@ -8,7 +8,7 @@
     <title>Tramonto Residence | Unidade Exclusiva Meia Praia</title>
     <meta property="og:title" content="Tramonto Residence | Unidade Exclusiva Meia Praia">
     <meta property="og:description" content="A essência do luxo em Itapema. 3 Suítes, Mobiliado, Sacada com Churrasqueira. Condições exclusivas de investimento.">
-    <meta property="og:image" content="fachada_luz.jpg"> <!-- Usa a foto da sala que já está no seu Github -->
+    <meta property="og:image" content="sala1_light.jpg"> <!-- Usa a foto da sala que já está no seu Github -->
     <meta property="og:type" content="website">
 
     <!-- FAVICON CUSTOMIZADO (ÁGUIA) -->
@@ -435,12 +435,11 @@
         
         <br><br>
         
-        <!-- Selo Mogul -->
+        <!-- Selo Mogul (Sem a Logo de imagem) -->
         <div style="opacity: 0.9; margin-top: 20px;">
             <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.5;">
                 Tecnologia de Vendas Exclusiva Mogul Partners 🦅<br>Proibida a reprodução de ativos.
             </p>
-            <img src="logo.png" alt="Mogul Tech" style="width: 160px; height: auto; display: block; margin: 0 auto; filter: grayscale(100%); opacity: 0.7;">
         </div>
     </footer>
 
@@ -452,6 +451,12 @@
     <!-- SCRIPTS PARA O ZOOM E BOLINHAS DE NAVEGAÇÃO -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script>
+        // Força a página a carregar sempre no topo ao ser atualizada (F5)
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         document.addEventListener("DOMContentLoaded", function() {
             // Ativa o Lightbox para qualquer elemento que tenha o atributo data-fancybox
             Fancybox.bind('[data-fancybox]', {
