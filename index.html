@@ -112,7 +112,7 @@
         .feature-box-text h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 5px; color: var(--text); }
         .feature-box-text p { color: var(--text-muted); line-height: 1.5; font-size: 0.95rem; }
 
-        /* CARROSSEL ZIG-ZAG (SEU ESTILO ORIGINAL) */
+        /* CARROSSEL ZIG-ZAG */
         .room-section { margin-bottom: 100px; position: relative; margin-top: 80px; }
         
         .room-title-sticky {
@@ -153,8 +153,8 @@
         .photo-card img:hover { transform: scale(1.08); transition: transform 0.8s ease-in-out; }
 
         /* PONTINHOS DO CARROSSEL MOBILE */
-        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 15px; }
-        .dot { width: 8px; height: 8px; background: #CCC; border-radius: 50%; transition: 0.3s; }
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 15px; flex-wrap: wrap; padding: 0 10px; }
+        .dot { width: 8px; height: 8px; background: #CCC; border-radius: 50%; transition: 0.3s; margin-bottom: 5px; }
         .dot.active { background: var(--gold); transform: scale(1.2); }
 
         /* LÓGICA RTL ORIGINAL MANTIDA */
@@ -179,24 +179,17 @@
         .fin-divider { width: 50px; height: 2px; background: var(--gold); margin: 20px auto; }
         .price-plan { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
 
-        /* NOVA SEÇÃO: MAPA DE LOCALIZAÇÃO */
+        /* MAPA DE LOCALIZAÇÃO */
         .map-section {
             padding: 0 20px 80px; max-width: 1000px; margin: 0 auto; text-align: center;
         }
         .map-container {
-            width: 100%;
-            height: 450px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--gold);
-            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
+            width: 100%; height: 450px; border-radius: 8px; overflow: hidden;
+            border: 1px solid var(--gold); box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
             background: var(--card-bg);
         }
         .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+            width: 100%; height: 100%; border: none; display: block;
         }
 
         /* MARCA D'ÁGUA ORIGINAL */
@@ -242,7 +235,7 @@
             .cta-float { left: 50%; transform: translateX(-50%); width: 90%; bottom: 20px; padding: 14px 0; font-size: 0.9rem; text-align: center; right: auto; }
             body { padding-bottom: 40px; }
             .financial-box { padding: 30px 20px; }
-            .map-container { height: 350px; } /* Ajuste de altura do mapa para celular */
+            .map-container { height: 350px; } 
         }
 
         /* CUSTOMIZAÇÃO DO FUNDO DO LIGHTBOX PARA MANTER O PADRÃO LUXO */
@@ -313,7 +306,7 @@
         </div>
     </section>
 
-    <!-- CÔMODO 1: LIVING -->
+    <!-- CÔMODO 1: LIVING (9 IMAGENS) -->
     <section class="room-section">
         <div class="room-title-sticky">Living Integrado</div>
         <div class="carousel-wrapper">
@@ -323,18 +316,27 @@
                     <p>Acabamento impecável em porcelanato de grande formato. Um espaço pensado para receber familiares e amigos com sofisticação absoluta.</p>
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
-                <div class="photo-card">
-                    <a href="sala1_light.jpg" data-fancybox="gallery"><img src="sala1_light.jpg" alt="Living Tramonto"></a>
-                </div>
-                <div class="photo-card">
-                    <a href="sala2_light.jpg" data-fancybox="gallery"><img src="sala2_light.jpg" alt="Detalhes Living"></a>
-                </div>
+                <!-- data-fancybox="living" agrupa apenas as fotos do Living -->
+                <div class="photo-card"><a href="sala1_light.jpg" data-fancybox="living"><img src="sala1_light.jpg" alt="Living 1"></a></div>
+                <div class="photo-card"><a href="sala2_light.jpg" data-fancybox="living"><img src="sala2_light.jpg" alt="Living 2"></a></div>
+                <div class="photo-card"><a href="sala3_light.jpg" data-fancybox="living"><img src="sala3_light.jpg" alt="Living 3"></a></div>
+                <div class="photo-card"><a href="sala4_light.jpg" data-fancybox="living"><img src="sala4_light.jpg" alt="Living 4"></a></div>
+                <div class="photo-card"><a href="sala5_light.jpg" data-fancybox="living"><img src="sala5_light.jpg" alt="Living 5"></a></div>
+                <div class="photo-card"><a href="sala6_light.jpg" data-fancybox="living"><img src="sala6_light.jpg" alt="Living 6"></a></div>
+                <div class="photo-card"><a href="sala7_light.jpg" data-fancybox="living"><img src="sala7_light.jpg" alt="Living 7"></a></div>
+                <div class="photo-card"><a href="sala8_light.jpg" data-fancybox="living"><img src="sala8_light.jpg" alt="Living 8"></a></div>
+                <div class="photo-card"><a href="sala9_light.jpg" data-fancybox="living"><img src="sala9_light.jpg" alt="Living 9"></a></div>
             </div>
-            <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+            <!-- 9 bolinhas indicadoras -->
+            <div class="carousel-dots">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
         </div>
     </section>
 
-    <!-- CÔMODO 2: SUÍTE -->
+    <!-- CÔMODO 2: SUÍTE (6 IMAGENS) -->
     <section class="room-section">
         <div class="room-title-sticky">Área Íntima</div>
         <div class="carousel-wrapper">
@@ -344,18 +346,23 @@
                     <p>3 amplas suítes com persianas automatizadas, piso vinílico para conforto térmico e acústico, e uma master concebida como spa particular.</p>
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
-                <div class="photo-card">
-                    <a href="quarto1_light.jpg" data-fancybox="gallery"><img src="quarto1_light.jpg" alt="Suíte Master"></a>
-                </div>
-                <div class="photo-card">
-                    <a href="quarto2_light.jpg" data-fancybox="gallery"><img src="quarto2_light.jpg" alt="Suíte Detalhes"></a>
-                </div>
+                <!-- data-fancybox="intima" agrupa apenas as fotos dos quartos -->
+                <div class="photo-card"><a href="quarto1_light.jpg" data-fancybox="intima"><img src="quarto1_light.jpg" alt="Quarto 1"></a></div>
+                <div class="photo-card"><a href="quarto2_light.jpg" data-fancybox="intima"><img src="quarto2_light.jpg" alt="Quarto 2"></a></div>
+                <div class="photo-card"><a href="quarto3_light.jpg" data-fancybox="intima"><img src="quarto3_light.jpg" alt="Quarto 3"></a></div>
+                <div class="photo-card"><a href="quarto4_light.jpg" data-fancybox="intima"><img src="quarto4_light.jpg" alt="Quarto 4"></a></div>
+                <div class="photo-card"><a href="quarto5_light.jpg" data-fancybox="intima"><img src="quarto5_light.jpg" alt="Quarto 5"></a></div>
+                <div class="photo-card"><a href="quarto6_light.jpg" data-fancybox="intima"><img src="quarto6_light.jpg" alt="Quarto 6"></a></div>
             </div>
-            <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+            <!-- 6 bolinhas indicadoras -->
+            <div class="carousel-dots">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
         </div>
     </section>
 
-    <!-- CÔMODO 3: LAZER -->
+    <!-- CÔMODO 3: LAZER (4 IMAGENS) -->
     <section class="room-section">
         <div class="room-title-sticky">Rooftop Lazer</div>
         <div class="carousel-wrapper">
@@ -365,14 +372,16 @@
                     <p>Área de lazer completa e decorada. Piscina com deck, espaço gourmet e ambientes pensados para o seu descanso nos finais de semana.</p>
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
-                <div class="photo-card">
-                    <a href="lazer1_light.jpg" data-fancybox="gallery"><img src="lazer1_light.jpg" alt="Área de Piscina"></a>
-                </div>
-                <div class="photo-card">
-                    <a href="lazer2_light.jpg" data-fancybox="gallery"><img src="lazer2_light.jpg" alt="Lazer Gourmet"></a>
-                </div>
+                <!-- data-fancybox="lazer" agrupa apenas as fotos do lazer -->
+                <div class="photo-card"><a href="lazer1_light.jpg" data-fancybox="lazer"><img src="lazer1_light.jpg" alt="Lazer 1"></a></div>
+                <div class="photo-card"><a href="lazer2_light.jpg" data-fancybox="lazer"><img src="lazer2_light.jpg" alt="Lazer 2"></a></div>
+                <div class="photo-card"><a href="lazer3_light.jpg" data-fancybox="lazer"><img src="lazer3_light.jpg" alt="Lazer 3"></a></div>
+                <div class="photo-card"><a href="lazer4_light.jpg" data-fancybox="lazer"><img src="lazer4_light.jpg" alt="Lazer 4"></a></div>
             </div>
-            <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+            <!-- 4 bolinhas indicadoras -->
+            <div class="carousel-dots">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
         </div>
     </section>
 
@@ -396,7 +405,7 @@
         </div>
     </section>
 
-    <!-- MAPA DE LOCALIZAÇÃO ADICIONADO AQUI -->
+    <!-- MAPA DE LOCALIZAÇÃO -->
     <section class="map-section">
         <h2 class="fin-title" style="margin-bottom: 30px;">Localização do Empreendimento</h2>
         <div class="map-container">
@@ -426,8 +435,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Ativa o Lightbox com Navegação e Botão Fechar (X)
-            Fancybox.bind('[data-fancybox="gallery"]', {
+            // Ativa o Lightbox para qualquer elemento que tenha o atributo data-fancybox
+            Fancybox.bind('[data-fancybox]', {
                 Hash: false // Evita adicionar hash na URL
             });
 
