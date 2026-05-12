@@ -8,7 +8,7 @@
     <title>Tramonto Residence | Unidade Exclusiva Meia Praia</title>
     <meta property="og:title" content="Tramonto Residence | Unidade Exclusiva Meia Praia">
     <meta property="og:description" content="A essência do luxo em Itapema. 3 Suítes, Mobiliado, Sacada com Churrasqueira. Condições exclusivas de investimento.">
-    <meta property="og:image" content="sala1_light.jpg"> <!-- Usa a foto da sala que já está no seu Github -->
+    <meta property="og:image" content="fachada_luz.jpg"> <!-- Usa a foto da sala que já está no seu Github -->
     <meta property="og:type" content="website">
 
     <!-- FAVICON CUSTOMIZADO (ÁGUIA) -->
@@ -199,7 +199,7 @@
             background-repeat: repeat; background-size: 300px; opacity: 0.03; transform: rotate(-30deg); 
         }
 
-        /* FOOTER ORIGINAL */
+        /* FOOTER ORIGINAL E ATUALIZADO PARA O CORRETOR */
         .footer {
             background: #FFFFFF; color: var(--text); text-align: center;
             padding: 80px 20px 120px; border-top: 1px solid #E0E0E0;
@@ -208,6 +208,15 @@
             width: 100px; height: 100px; border-radius: 50%;
             border: 2px solid var(--gold); margin-bottom: 20px; object-fit: cover;
         }
+        
+        .inline-cta {
+            display: inline-block; background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: #FFF; padding: 15px 35px; border-radius: 50px; text-decoration: none; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.3); margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+        .inline-cta:hover { transform: translateY(-3px); }
 
         /* CTA ORIGINAL */
         .cta-float {
@@ -408,11 +417,25 @@
     </section>
 
     <footer class="footer">
-        <img src="corretores.jpg" class="broker-img" alt="Umbelino Imóveis">
-        <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Umbelino Imóveis</h3>
-        <p>CRECI: 10292-J</p>
+        <!-- O Protagonista: Corretor -->
+        <img src="corretores.jpg" class="broker-img" alt="Diogo Sorroche">
+        <h3 style="font-family:'Cinzel'; margin-bottom:5px; color:var(--text);">Diogo Sorroche</h3>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">Especialista em Alto Padrão - Itapema/SC</p>
+        
+        <!-- Botão para Falar Direto com o Diogo -->
+        <a href="https://wa.me/5547996127433?text=Olá%20Diogo%20Sorroche!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Tramonto%20Residence." class="inline-cta">
+            <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Falar com Diogo
+        </a>
+
+        <!-- Dados Jurídicos (Imobiliária) -->
+        <div style="border-top: 1px solid #EAEAEA; padding-top: 25px; max-width: 300px; margin: 0 auto; color: var(--text-muted);">
+            <p style="font-family: 'Cinzel', serif; font-weight: 600; color: var(--text); font-size: 1.1rem; margin-bottom: 5px;">Umbelino Imóveis</p>
+            <p style="font-size: 0.85rem;">CRECI Jurídico: 10292-J</p>
+        </div>
+        
         <br><br>
         
+        <!-- Selo Mogul -->
         <div style="opacity: 0.9; margin-top: 20px;">
             <p style="font-size:0.6rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.5;">
                 Tecnologia de Vendas Exclusiva Mogul Partners 🦅<br>Proibida a reprodução de ativos.
@@ -421,8 +444,8 @@
         </div>
     </footer>
 
-    <!-- LINK DO WHATSAPP ATUALIZADO -->
-    <a href="https://wa.me/5547996127433?text=Olá%20Umbelino%20Imóveis!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Tramonto%20Residence." class="cta-float">
+    <!-- LINK DO WHATSAPP FLUTUANTE (MENSAGEM PARA O DIOGO) -->
+    <a href="https://wa.me/5547996127433?text=Olá%20Diogo%20Sorroche!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Tramonto%20Residence." class="cta-float">
         <i class="fa-brands fa-whatsapp"></i> Falar com o Corretor
     </a>
 
