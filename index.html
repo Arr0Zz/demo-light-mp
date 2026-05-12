@@ -35,7 +35,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* 2. MICRO-INTERAÇÕES: SCROLL SUAVE */
+        /* MICRO-INTERAÇÕES: SCROLL SUAVE */
         html { scroll-behavior: smooth; }
         
         body { 
@@ -131,7 +131,7 @@
         .room-info-card {
             min-width: 350px; scroll-snap-align: start; background: var(--card-bg); border: 1px solid #E0E0E0;
             padding: 40px; display: flex; flex-direction: column; justify-content: center;
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.1); /* SOMBRA ORIGINAL MANTIDA */
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1); 
             margin-right: -40px; z-index: 5; height: 450px;
         }
         
@@ -179,6 +179,26 @@
         .fin-divider { width: 50px; height: 2px; background: var(--gold); margin: 20px auto; }
         .price-plan { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
 
+        /* NOVA SEÇÃO: MAPA DE LOCALIZAÇÃO */
+        .map-section {
+            padding: 0 20px 80px; max-width: 1000px; margin: 0 auto; text-align: center;
+        }
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--gold);
+            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
+            background: var(--card-bg);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
         /* MARCA D'ÁGUA ORIGINAL */
         .watermark-layer {
             position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -222,6 +242,7 @@
             .cta-float { left: 50%; transform: translateX(-50%); width: 90%; bottom: 20px; padding: 14px 0; font-size: 0.9rem; text-align: center; right: auto; }
             body { padding-bottom: 40px; }
             .financial-box { padding: 30px 20px; }
+            .map-container { height: 350px; } /* Ajuste de altura do mapa para celular */
         }
 
         /* CUSTOMIZAÇÃO DO FUNDO DO LIGHTBOX PARA MANTER O PADRÃO LUXO */
@@ -303,7 +324,6 @@
                     <div class="swipe-hint">CLIQUE NA FOTO PARA ZOOM</div>
                 </div>
                 <div class="photo-card">
-                    <!-- ADICIONADO data-fancybox="gallery" -->
                     <a href="sala1_light.jpg" data-fancybox="gallery"><img src="sala1_light.jpg" alt="Living Tramonto"></a>
                 </div>
                 <div class="photo-card">
@@ -356,6 +376,7 @@
         </div>
     </section>
 
+    <!-- PROPOSTA FINANCEIRA -->
     <section class="financial-section">
         <div class="financial-box">
             <h2 class="fin-title">Condições de Aquisição</h2>
@@ -372,6 +393,14 @@
                 Entrada de R$ 600.000,00 <br>
                 + 60 mensais de R$ 20.000,00
             </div>
+        </div>
+    </section>
+
+    <!-- MAPA DE LOCALIZAÇÃO ADICIONADO AQUI -->
+    <section class="map-section">
+        <h2 class="fin-title" style="margin-bottom: 30px;">Localização do Empreendimento</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1778605217662!5m2!1spt-BR!2sbr!6m8!1m7!1siOpn_qfxFAtN0CnOFP5epA!2m2!1d-27.12983922936738!2d-48.60756353215912!3f279.5111848062442!4f1.8267383237462411!5f0.4682706268143314" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
